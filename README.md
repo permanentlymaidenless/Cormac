@@ -3,3 +3,6 @@ I will creat a bullet hell/rogue like game in python using pygame. You will be a
 
 ## GUI Mockup
 ![Mockup](https://github.com/permanentlymaidenless/Cormac/blob/main/images/CormacGuimockup.png?raw=true)
+
+## Class Diagram
+![Class Diagram]()
