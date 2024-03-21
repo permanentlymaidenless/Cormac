@@ -5,4 +5,4 @@ I will creat a bullet hell/rogue like game in python using pygame. You will be a
 ![Mockup](https://github.com/permanentlymaidenless/Cormac/blob/main/images/CormacGuimockup.png?raw=true)
 
 ## Class Diagram
-![Class Diagram]()
+![Class Diagram](https://github.com/permanentlymaidenless/Cormac/blob/main/images/CormacClassDia.png?raw=true)
