@@ -1,11 +1,12 @@
 import pygame
 import random
-#from player import player
+import time
+
 pygame.init()
 screen = pygame.display.set_mode((500, 500))
 background_color = (50,50,50)
 font = pygame.font.SysFont('Arial',32)
-
+circles = []
 def startScreen(screen):
   global s
   t = True
@@ -31,37 +32,49 @@ def startScreen(screen):
     screen.blit(clickText, clickRect)
     pygame.display.flip()
 
-x = 200
-y = 200
+x = 250
+y = 250
+cx = x
+cy = y
+movement = 1
+cirpos = (cx,cy)
 s = True
 running = True
-fps = 5
+fps = 10
 while running:
   for event in pygame.event.get():
     if event.type == pygame.QUIT:
-          quit()
+      running = False
+      quit()
     if s:
-      startScreen(screen)
-  keys = pygame.key.get_pressed()    
+      startScreen(screen) 
+  keys = pygame.key.get_pressed()  
   if keys[pygame.K_UP]:
-        y=y-1
-        pygame.time.delay(2)
+    y=y-movement
+    pygame.time.delay(2)
+    movement = 1
   if keys[pygame.K_DOWN]:
-        y=y+1
-        pygame.time.delay(2)
+    y=y+movement
+    pygame.time.delay(2)
+    movement = 1
   if keys[pygame.K_LEFT]:
-        x=x-1
-        pygame.time.delay(2)
+    x=x-movement
+    pygame.time.delay(2)
+    movement = 1
   if keys[pygame.K_RIGHT]:
-        x=x+1
-        pygame.time.delay(2)
+    x=x+movement
+    pygame.time.delay(2)
+    movement = 1
   if keys[pygame.K_ESCAPE]:
-        quit()
-        running = False
-  screen.fill(background_color)
+    running = False
+    quit()
+  if keys[pygame.K_c]:
+    cy = y
+    cx = x
+    cirpos = (cx,cy)
+    circles.append(cirpos)
+    for circle in circles:
+      pygame.draw.circle(screen, (255,200,0), circle, 20)
   pygame.draw.rect(screen,(150,200,150),pygame.Rect(x,y,50,50))
   pygame.display.update()
-  
-    
-      
-    
+  screen.fill(background_color)
